@@ -1,0 +1,24 @@
+.rightTop{
+  height: 70%;
+  padding: 0px 10px;
+  box-sizing: border-box
+}
+.title{
+  border-bottom: 1px solid #ccc;
+  height: 12%;
+  line-height: 50px;
+  text-align: center
+}
+.msgDisplayCard{
+  height: 88%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: scroll;
+  display: none;
+}
+.publicBack{
+  height: 88%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: scroll;
+}

@@ -1,0 +1,92 @@
+  ul,li{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+  }
+.rightBottom{
+    height: 30%;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .statusCard{
+    height: 20%;
+  }
+  .emjoi{
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid #ccc; */
+    float: left;
+    margin: 0px 10px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    /* overflow: hidden; */
+  }
+  .file,.rtc{
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid #ccc; */
+    float: left;
+    margin: 0px 10px;
+    overflow: hidden;
+  }
+  .Emjoi,.File,.Rtc{
+    width: 20px;
+    height: 20px;
+  }
+  .input{
+    height: 60%;
+    text-align: left;
+    outline: none;
+    padding: 0px 10px;
+    overflow: hidden;
+  }
+  .send{
+    height: 20%;
+  }
+  .btn{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    text-align: center;
+    outline: none;
+    float: right;
+  }
+  .tip{
+    display: inline-block;
+    transform: translateX(220px);
+    line-height: 30px;
+  }
+  .iconCard{
+    height: 300px;
+    width: 300px;
+    /* border: 1px solid #ccc; */
+    position: absolute;
+    top: -310px;
+    left: 0px;
+    display: none;
+    background-color: #fff;
+  }
+  .point{
+    transform: translate(-135px,300px);
+    border: 10px solid transparent;
+    border-top-color: #fff;
+    display: inline-block;
+  }
+  #fileIpt{
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  .fileBtn{
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+  }
+  .show{
+    display: block;
+  }

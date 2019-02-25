@@ -1,0 +1,17 @@
+.breakMask{
+  width: 1000px;
+  height: 663px;
+  text-align: center;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #000;
+  opacity: .5;
+  position: fixed;
+  z-index: 1;
+}
+.content{
+  margin: 0px;
+  color: #eee;
+  font-size: 24px;
+  line-height: 663px;
+}

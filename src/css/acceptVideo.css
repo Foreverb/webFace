@@ -1,0 +1,49 @@
+.box{
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  transform: translateY(100px);
+  padding: 10px;
+  box-sizing: border-box;
+}
+.avaWrap{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  margin-top: 50px;
+  overflow: hidden;
+}
+.Tip{
+  width: 100%;
+  line-height: 40px;
+  margin: 0px;
+  margin-top: 10px;
+  text-align: center;
+}
+.offerAva{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.State{
+  height: 50px;
+  width: 100%;
+  margin-top: 30px;
+}
+.accept{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+  margin-left: 50px;
+}
+.cancel{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  float: right;
+  margin-right: 50px;
+}

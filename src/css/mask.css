@@ -1,0 +1,9 @@
+.mask{
+  width: 720px;
+  height: 663px;
+  float: left;
+  position: fixed;
+  z-index: 1;
+  background-color: #000;
+  opacity: .5;
+}

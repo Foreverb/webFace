@@ -1,0 +1,26 @@
+.publicCard{
+  /* margin-top: 10px; */
+  padding: 10px;
+  overflow: hidden;
+}
+.another{
+  padding: 20px;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+}
+.publicAvater{
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  float: left;
+}
+.all{
+  font-size: 16px;
+  color: #eee;
+  display: inline-block;
+  transform: translate(-20px,10px);
+}
+.Actived{
+    background-color: black;
+    opacity: .5;
+}

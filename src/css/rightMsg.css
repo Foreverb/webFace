@@ -1,0 +1,22 @@
+.msgWrap{
+    overflow: hidden;
+  }
+  .rightImg{
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-left: 10px;
+  }
+  .msg{
+    min-height: 40px;
+    max-width: 200px;
+    padding: 0px 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 6px;
+    float: right;
+    text-align: left;
+    line-height: 40px;
+    word-break:break-all ;
+  }
