@@ -2,9 +2,52 @@
   height: 20%;
   padding: 10px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
   overflow: hidden;
+  position: relative;
+}
+.avaAndNick{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .avater{
+  width: 50px;
+  height: 50px;
+}
+.nick{
+  width: 180px;
+  height: 50px;
+  font-size: 18px;
+  color: #eee;
+  line-height: 50px;
+  outline: none;
+  overflow: hidden;
+  margin: 0px;
+}
+.online{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-color:green;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#avaApgrade,
+#avaApgrade input{
+  height: 50px;
+  width: 50px;
+}
+#avaApgrade{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -10;
+}
+/* .avater{
     width: 50px;
     height: 50px;
     float: left;
@@ -60,4 +103,4 @@
   #avaApgrade input{
     width: 50px;
     height: 50px;
-  }
+  } */

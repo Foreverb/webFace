@@ -1,9 +1,11 @@
-/* .emjoi_1{
-  width: 40px;
-  height: 40px;
-  display: inline-block;
+.red{
+  color: red
 }
-.img_1{
-  width: 40px;
-  height: 40px;
-} */
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.icon_item{
+  padding: 0px 5px;
+  font-size: 18px;
+}

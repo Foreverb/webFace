@@ -55,7 +55,5 @@ input,button{
 .userList{
   border-top: 1px solid black;
   height: 60%;
-  /* padding: 10px; */
-  overflow: scroll;
   box-sizing: border-box;
 }

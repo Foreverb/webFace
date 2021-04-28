@@ -14,8 +14,8 @@ const hostName = '140.82.16.201';
 // const hostName = '192.168.31.69';
 var SSLPORT = '19999';
 
-let keypath=process.cwd()+'/server.key';
-let certpath=process.cwd()+'/server.crt';
+let keypath=process.cwd()+'/private.key';
+let certpath=process.cwd()+'/mydomain.crt';
 let options = {
 
   key: fs.readFileSync(keypath),

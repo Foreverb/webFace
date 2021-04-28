@@ -42,3 +42,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+开启一个https服务：http-server --cert D:\webFace\src\wss\server.crt --key D:\webFace\src\wss\server.key --ssl --cors -p 443
+
+使用openssl 生成自签名证书(免费，本地测试使用)
+
+1. 生成Private Key 和 CSR:
+
+openssl req -new -newkey rsa:2048 -nodes -out mydomain.csr -keyout private.key
+
+2. 利用上一步生成的private.key和mydomain.csr生成自签名证书:
+
+openssl x509 -req -days 365 -in mydomain.csr -signkey private.key -out mydomain.crt

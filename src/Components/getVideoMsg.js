@@ -24,8 +24,8 @@ class GetVideoMsg extends Component{
   }
   //拒绝视频通话
   refuse(socket,id,chatModePid,src){
-    let data = JSON.stringify({date:{content:'对方拒绝视频通话',src:src},from:id,to:chatModePid,type:'refuseVideo'});
-    socket.send(data);
+    // let data = JSON.stringify({date:{content:'对方拒绝视频通话',src:src},from:id,to:chatModePid,type:'refuseVideo'});
+    // socket.send(data);
     let data2 = JSON.stringify({date:{content:'您拒绝视频通话',src:src},from:chatModePid,to:id,type:'refuseHim'});
     socket.send(data2);
   }

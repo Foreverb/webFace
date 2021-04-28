@@ -10,7 +10,7 @@ class FileUpload{
       xhr.open("POST", "https://140.82.16.201:19999/upload", true);
       xhr.send(oData);
       xhr.onload = function (oEvent) {
-          if (xhr.status == 200 && xhr.readyState == 4) {
+          if (xhr.status === 200 && xhr.readyState === 4) {
             console.log(xhr.responseText);
             uploadFile(xhr.responseText)
             let data = JSON.stringify({date:{content:xhr.responseText,src:ava},from:from,to:to,type:'chatMessage'})
@@ -29,7 +29,7 @@ class FileUpload{
       xhr.open("POST", "https://140.82.16.201:19999/upload", true);
       xhr.send(oData);
       xhr.onload = function (oEvent) {
-          if (xhr.status == 200 && xhr.readyState == 4) {
+          if (xhr.status === 200 && xhr.readyState === 4) {
             updateAvatar(xhr.responseText)
           }
       };

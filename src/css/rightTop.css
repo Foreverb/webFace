@@ -20,5 +20,5 @@
   height: 88%;
   padding: 20px;
   box-sizing: border-box;
-  overflow: scroll;
+  overflow:auto
 }

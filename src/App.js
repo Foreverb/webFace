@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+import './iconfont.css'
 import Information from './Components/information';
 import PublicWrap from './Components/publicWrap';
 import RightTop from './Components/rightTop';
 import RightBottom from './Components/rightBottom';
 import Item from './Components/userItem';
 import ChatClient from './ChatClient';
-import FileUpload from './fileUpload';
+// import FileUpload from './fileUpload';
 import Mask from './Components/mask';
 import VideoWate from './Components/videoWate';
 import OnVideo from './Components/onVideo';
@@ -57,15 +58,17 @@ class App extends Component {
         // this.setState({waitVideo:true});
         //接收视频聊天消息
         // this.setState({videoMsg:true});
-        this.setState({breakLine:true});
+        // this.setState({breakLine:true});
     }
     //初始化socket
     // ChatClient.initSocket('wss://192.168.31.69:8888',ReconnectingWebSocket);
-    ChatClient.initSocket('wss://192.168.1.106:8888');
+    ChatClient.initSocket('wss://172.16.30.90:8888');
     ChatClient.socket.onclose = (e)=>{
+      console.log('socket 关闭');
       this.setState({breakLine:true,onclose:true});
     }
     ChatClient.socket.onopen = (e)=>{
+      console.log('socket 开启');
       this.setState({breakLine:false,onclose:false})
     }
     ChatClient.on('userInfo',(data)=>{
@@ -93,10 +96,14 @@ class App extends Component {
       this.setState({onlineUserList:list});
     })
     ChatClient.on('chatMessage',(data)=>{
+      //处理消息
       this.putMsg(data);
+      //
       this.changeChatObj(data.from);
     })
+    //挂断
     ChatClient.on('hangUp',(data)=>{
+      console.log('挂断');
       this.setState({isFaceTime:false,videoMsg:false});
       ChatClient.pc.close();
       ChatClient.pc = null;
@@ -104,25 +111,30 @@ class App extends Component {
       this.putMsg(data);
       this.changeChatObj(data.from);
     })
+    //拒绝
     ChatClient.on('refuseVideo',(data)=>{
       this.setState({waitVideo:false,isFaceTime:false});
       this.putMsg(data);
       this.changeChatObj(data.from);
     })
+    //
     ChatClient.on('refuseHim',(data)=>{
       this.setState({videoMsg:false});
       this.putMsg(data);
       this.changeChatObj(data.from);
     })
+    //更新头像
     ChatClient.on('updateProfile',(profile)=>{
       this.setState({profile});
     })
+    //发起视频通话
     ChatClient.on('videoRquest',(data)=>{
       let info = data.content;
       let {id} = info;
       this.setState({videoMsg:true,videoReqInfo:info,chatModePid:id});
       ChatClient.mediaStreamTrack && ChatClient.mediaStreamTrack.stop();
     })
+    //接受视频通话
     ChatClient.on('agreeVideo',(data)=>{
       let {profile,chatModePid} = this.state;
       let {id} = profile;
@@ -135,12 +147,14 @@ class App extends Component {
 
       ChatClient.pc.createOffer((sdp)=>ChatClient.changeSdpMsg(socket,id,chatModePid,sdp),ChatClient.handleError);
     })
+    //交换sdp信息
     ChatClient.on('changeSdpMsg',(data)=>{
       console.log('接收到对方sdp')
-      let {isFaceTime,profile,chatModePid} = this.state;
+      let {profile,chatModePid} = this.state;
       let {id} = profile;
       ChatClient.SetRemoteDescription(data,()=>{ChatClient.onAnswercandidate(id,chatModePid)});
     })
+    //交换ice信息
     ChatClient.on('changeIceMsg',(data)=>{
       let candidate = data.content;
       console.log('接收到candidate ，本地添加 candidate')
@@ -149,6 +163,7 @@ class App extends Component {
           ChatClient.pc.addIceCandidate(new RTCIceCandidate(candidate));
       }
     })
+    //接受ping
     ChatClient.on('__PING',()=>{
       let profile = this.state;
       let {id} = profile.profile;
@@ -235,7 +250,7 @@ class App extends Component {
   }
   //接收到消息需要同步处理的事件
   changeChatObj(data){
-    let {chatModePid} = this.state;
+    // let {chatModePid} = this.state;
     // let {from} = data;
     this.setState({chatModePid:data});
   }

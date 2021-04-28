@@ -1,32 +1,6 @@
 window.Mock = true;
 //调用函数，与服务端进行交互
 class ChatClient {
-  emjoi = [
-    './emoji/1.png','./emoji/2.png','./emoji/3.png',
-    './emoji/4.png','./emoji/5.png','./emoji/6.png',
-    './emoji/7.png','./emoji/8.png','./emoji/9.png',
-    './emoji/10.png','./emoji/11.png','./emoji/12.png',
-    './emoji/13.png','./emoji/14.png','./emoji/15.png',
-    './emoji/16.png','./emoji/17.png','./emoji/18.png',
-    './emoji/19.png','./emoji/20.png','./emoji/21.png',
-    './emoji/22.png','./emoji/23.png','./emoji/24.png',
-    './emoji/25.png','./emoji/26.png','./emoji/27.png',
-    './emoji/28.png','./emoji/29.png','./emoji/30.png',
-    './emoji/31.png','./emoji/32.png','./emoji/33.png',
-    './emoji/34.png','./emoji/35.png','./emoji/36.png',
-    './emoji/37.png','./emoji/38.png','./emoji/39.png',
-    './emoji/40.png'
-  ];
-  Code = [
-    '[e:~]','[e:!]','[e:@]','[e:#]','[e:$]',
-    '[e:%]','[e:^]','[e:&]','[e:*]','[e:(]',
-    '[e:)]','[e:Q]','[e:W]','[e:E]','[e:R]',
-    '[e:T]','[e:Y]','[e:U]','[e:I]','[e:O]',
-    '[e:P]','[e:A]','[e:S]','[e:D]','[e:F]',
-    '[e:G]','[e:H]','[e:J]','[e:K]','[e:L]',
-    '[e:Z]','[e:X]','[e:C]','[e:V]','[e:B]',
-    '[e:N]','[e:M]','[e:<]','[e:>]','[e:?]'
-  ];
   faceLibary = {'[文件]':'./img/file.png'}
 
   //获取当前光标位置
@@ -44,7 +18,7 @@ class ChatClient {
           preCaretRange.setEnd(range.endContainer, range.endOffset);  //重置选中区域的结束位置
           caretOffset = preCaretRange.toString().length;
         }
-      } else if ((sel = doc.selection) && sel.type != "Control") {//IE
+      } else if ((sel === doc.selection) && sel.type !== "Control") {//IE
         var textRange = sel.createRange();
         var preCaretTextRange = doc.body.createTextRange();
         preCaretTextRange.moveToElementText(element);
@@ -332,7 +306,7 @@ class ChatClient {
   getCookie(name){
 
       var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)"); //正则匹配
-      if(arr=document.cookie.match(reg)){
+      if(arr===document.cookie.match(reg)){
         return unescape(arr[2]);
       }
       else{

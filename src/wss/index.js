@@ -6,13 +6,13 @@ var CircularJSON = require('circular-json');
 let https = require('https');
 let fs = require('fs');
 // let hostName = '192.168.31.69';
-let hostName = '192.168.1.106';
+let hostName = '172.16.30.90';
 // let hostName = '127.0.0.1';
 let port = '8888';
 let Frame = require('./Frame.js');
 
-let keypath=process.cwd()+'/server.key';
-let certpath=process.cwd()+'/server.crt';
+let keypath=process.cwd()+'/private.key';
+let certpath=process.cwd()+'/mydomain.crt';
 // console.log(keypath,certpath)
 let options = {
  key: fs.readFileSync(keypath),
@@ -68,6 +68,7 @@ function msgModel(content,from,to,type){
  * 协议升级
  */
 function upgradeProtocol(request, socket, head){
+  console.log('协议升级:' , socket);
     // 取出浏览器发送的key值
     let secKey = request.headers['sec-websocket-key'];
 
@@ -175,6 +176,7 @@ function RefuseVideo(data){
     Frame.encodeDataFrame({FIN:1,Opcode:1,PayloadData: msgModel(msg,from,to,type)})
   );
 }
+//挂断
 function hangUp(data){
   let con = data.date;
   let msg = '通话已挂断，时长：'+allTime+'s';
@@ -189,6 +191,7 @@ function hangUp(data){
     Frame.encodeDataFrame({FIN:1,Opcode:1,PayloadData: msgModel(con,'server',from,type)})
   )
 }
+
 function videoMsgModel(data){
   let msg = data.content;
   let from = data.from;
@@ -253,6 +256,7 @@ function checkOnlineUserIsActive(){
 let server=https.createServer(options, function (req, res) {});
 //收到客户端发送过来的协议升级请求
 server.on('upgrade', (request, socket, head)=>{
+  console.log('http upgrade https');
     let id = uuid.v4();
 
     //服务端初始化websocket
@@ -324,14 +328,14 @@ function generateUserProfile( id, cookie, Socket ){
     }
   }
     //发送用户信息
-    let nick = id.substr(0,6);
+    let nick = id.substr(0,11);
     //初始化用户信息
     socketStorage[id] = {
       state : 'INIT', //INIT PING PONG
       profile : {
         id : id,
         nick : nick,
-        ava : 'https://raw.githubusercontent.com/Foreverb/foreverb.github.io/master/img/avatar.png',
+        ava : 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1031616880,656595316&fm=26&gp=0.jpg',
         isOpenPublic : true,
         last_active_time : new Date().getTime()+(20*1000),
       },

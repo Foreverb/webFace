@@ -12,29 +12,7 @@
   .statusCard{
     height: 20%;
   }
-  .emjoi{
-    width: 30px;
-    height: 30px;
-    /* border: 1px solid #ccc; */
-    float: left;
-    margin: 0px 10px;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    /* overflow: hidden; */
-  }
-  .file,.rtc{
-    width: 30px;
-    height: 30px;
-    /* border: 1px solid #ccc; */
-    float: left;
-    margin: 0px 10px;
-    overflow: hidden;
-  }
-  .Emjoi,.File,.Rtc{
-    width: 20px;
-    height: 20px;
-  }
+  
   .input{
     height: 60%;
     text-align: left;
@@ -60,22 +38,6 @@
     transform: translateX(220px);
     line-height: 30px;
   }
-  .iconCard{
-    height: 300px;
-    width: 300px;
-    /* border: 1px solid #ccc; */
-    position: absolute;
-    top: -310px;
-    left: 0px;
-    display: none;
-    background-color: #fff;
-  }
-  .point{
-    transform: translate(-135px,300px);
-    border: 10px solid transparent;
-    border-top-color: #fff;
-    display: inline-block;
-  }
   #fileIpt{
     position: relative;
     z-index: 10;
@@ -86,6 +48,62 @@
     width: 20px;
     height: 20px;
     opacity: 0;
+  }
+
+
+  .iconCard div:nth-of-type(1) {
+    display: flex !important;
+  }
+  .iconCard div:nth-of-type(1) div:nth-of-type(1){
+    display: flex !important;
+    align-items: center !important;
+  }
+  .iconCard div:nth-of-type(1) div:nth-of-type(2) div:nth-of-type(1) span{
+    top: 50% !important;
+    transform: translateY(-25%) !important;
+  }
+  .iconCard div:nth-of-type(1) div:nth-of-type(1) div{
+    border: none !important;
+    /* margin: 0px !important; */
+  }
+  .iconCard{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    display: block;
+    top: -312px;
+    background-color: #fff;
+  }
+  .point{
+    position: absolute;
+    top: -11px;
+    border: 10px solid transparent;
+    border-top-color: #fff;
+    display: inline-block;
+  }
+  .emjoi{
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin: 0px 10px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
+  .file,.rtc{
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin: 0px 10px;
+    overflow: hidden;
+  }
+  .Rtc{
+    width: 30px;
+    height: 30px;
+  }
+  .Emjoi,.File{
+    width: 20px;
+    height: 20px;
   }
   .show{
     display: block;
